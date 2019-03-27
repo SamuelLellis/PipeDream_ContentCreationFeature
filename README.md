@@ -10,4 +10,4 @@ additional things to the article besides reading it; otherwise they will only be
 
 -We will use NodeJS
 
--Our service will request an article's unique ID from a database provided by gateway API; this will allow us to associate the content with the correct article title. Provided this information we will be able to assign correct permissions for each respective user depending upon the article.   
+-Our service will request an article's unique ID from the gateway API; this will allow us to associate the content with the correct article title. Provided this information we will be able to assign correct permissions for each respective user depending upon the article.   
