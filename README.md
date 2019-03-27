@@ -10,6 +10,4 @@ additional things to the article besides reading it; otherwise they will only be
 
 -We will use NodeJS
 
-For this we propose a new service that manages a specific key for each article so that everything is connected. Having a central database with all of the articles and their call keys will make it so articles can be passed between services without issue.  
-
-Given this central database, we will be able to allow users to interact with articles asccording to their privelages. 
+-Our service will request an article's unique ID from a database provided by gateway API; this will allow us to associate the content with the correct article title. Provided this information we will be able to assign correct permissions for each respective user depending upon the article.   
