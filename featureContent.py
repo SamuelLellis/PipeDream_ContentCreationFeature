@@ -1,22 +1,18 @@
 import mysql.connector
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
+def connect ():
+    mydb = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "",
     database = "mydatabase"
-)
-
-
+    )
+    return mydb
+mydb = connect()
 mycursor = mydb.cursor()
 
 def display():
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database = "mydatabase"
-)
+    mydb = connect()
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM contentcreation")
 
@@ -32,31 +28,14 @@ def display():
 
 
 def checkID(num):
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database = "mydatabase"
-)
-
+    mydb = connect()
     mycursor = mydb.cursor()
     mycursor.execute("SELECT ID FROM contentcreation")
 
     myresult = mycursor.fetchall()
 
-    
-
-    
-            
-    
-
 def addNew(id, content):
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database = "mydatabase"
-)
+    mydb = connect()
     mycursor = mydb.cursor()
 
     sql = "INSERT INTO contentcreation (ID, Content) VALUES (%s,%s)"
@@ -70,13 +49,3 @@ def addNew(id, content):
 def main():
     display()
     checkID(1)
-
-
-
-main()
-#mycursor.execute("CREATE DATABASE mydatabase")
-
-#mycursor.execute("SHOW DATABASES")
-
-#for x in mycursor:
-   # print(x)
