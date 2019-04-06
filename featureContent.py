@@ -7,57 +7,41 @@ mydb = mysql.connector.connect(
     database = "mydatabase"
 )
 
-
 mycursor = mydb.cursor()
 
 def display():
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database = "mydatabase"
-)
-    mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM contentcreation")
 
 
     myresult = mycursor.fetchall()
 
     print("Total number of rows in current article database:", mycursor.rowcount)
-
+    print()
     for row in myresult:
         print("Id = ", row[0], )
         print("Content = ", row[1])
-        print("Timestamp = ", row[3])
-
-
+        print()
+        
 def checkID(num):
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database = "mydatabase"
-)
-
     mycursor = mydb.cursor()
     mycursor.execute("SELECT ID FROM contentcreation")
 
     myresult = mycursor.fetchall()
 
     
+def delete(num):
+#this doesn't quite work yet
 
-    
-            
+    sql = "DELETE FROM contentcreation WHERE ID == num"
+
+    mycursor.execute(sql)
+
+    mydb.commit()
+
+    print(mycursor.rowcount, "record(s) deleted")
     
 
 def addNew(id, content):
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database = "mydatabase"
-)
-    mycursor = mydb.cursor()
 
     sql = "INSERT INTO contentcreation (ID, Content) VALUES (%s,%s)"
     val = (id, content)
@@ -69,7 +53,8 @@ def addNew(id, content):
 
 def main():
     display()
-    checkID(1)
+    #delete(1)
+    
 
 
 
