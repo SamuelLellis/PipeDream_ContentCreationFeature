@@ -11,11 +11,11 @@ def connect ():
 mydb = connect()
 mycursor = mydb.cursor()
 
-def display():
+def display(id,role):
     mydb = connect()
     mycursor = mydb.cursor()
-    mycursor.execute("SELECT * FROM contentcreation")
 
+    mycursor.execute("SELECT * FROM contentcreation")
 
     myresult = mycursor.fetchall()
 
@@ -25,7 +25,6 @@ def display():
         print("Id = ", row[0], )
         print("Content = ", row[1])
         print("Timestamp = ", row[3])
-
 
 def checkID(num):
     mydb = connect()
@@ -38,10 +37,15 @@ def addNew(id, content):
     mydb = connect()
     mycursor = mydb.cursor()
 
-    sql = "INSERT INTO contentcreation (ID, Content) VALUES (%s,%s)"
-    val = (id, content)
-    mycursor.execute(sql, val)
+    foo = open(content)
+    data = foo.read()
+    fdata = json.loads(data)
+    dataString = json.dumps(fdata)
+    foo.close()
 
+    sql = "INSERT INTO contentcreation (ID, Content) VALUES (%d,%s)"
+    val = (id, dataSring)
+    mycursor.execute(sql, val)
     mydb.commit()
 
     print(mycursor.rowcount,"record inserted")
