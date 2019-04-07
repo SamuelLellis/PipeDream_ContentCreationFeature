@@ -11,7 +11,7 @@ def connect ():
 mydb = connect()
 mycursor = mydb.cursor()
 
-def display(id,role):
+def displayAll(id,role):
     mydb = connect()
     mycursor = mydb.cursor()
 
@@ -22,9 +22,7 @@ def display(id,role):
     print("Total number of rows in current article database:", mycursor.rowcount)
 
     for row in myresult:
-        print("Id = ", row[0], )
         print("Content = ", row[1])
-        print("Timestamp = ", row[3])
 
 def checkID(num):
     mydb = connect()
