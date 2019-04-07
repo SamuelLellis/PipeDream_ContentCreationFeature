@@ -1,13 +1,6 @@
 import mysql.connector
+from connect import connect
 
-def connect ():
-    mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "",
-    database = "mydatabase"
-    )
-    return mydb
 mydb = connect()
 mycursor = mydb.cursor()
 

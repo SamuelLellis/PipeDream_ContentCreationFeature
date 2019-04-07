@@ -7,3 +7,4 @@ def connect ():
     password = "",
     database = "mydatabase"
     )
+    return mydb
