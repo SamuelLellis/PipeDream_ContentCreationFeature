@@ -1,9 +1,6 @@
 import mysql.connector
 from connect import connect
 
-mydb = connect()
-mycursor = mydb.cursor()
-
 def displayAll(id,role):
     mydb = connect()
     mycursor = mydb.cursor()
@@ -41,6 +38,7 @@ def addNew(id, content):
 
     print(mycursor.rowcount,"record inserted")
 
-def main():
-    display()
-    checkID(1)
+print('this works')
+addNew(1, 'content')
+display()
+checkID(1)
