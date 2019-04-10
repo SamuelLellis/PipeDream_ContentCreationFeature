@@ -1,16 +1,11 @@
 import mysql.connector
 from connect import connect
-<<<<<<< HEAD
-
-def displayAll(id,role):
-=======
 from getter import *
 mydb = connect()
 mycursor = mydb.cursor()
 
 
 def displayAll():
->>>>>>> bcf29695352585925fe13bb2ba8f4f55b26d1289
     mydb = connect()
     mycursor = mydb.cursor()
 
@@ -29,7 +24,7 @@ def checkID(num):
     mycursor.execute("SELECT ID FROM contentcreation")
     myresult = mycursor.fetchall()
 
-def addNew(id, content):
+def addNew(content):
     mydb = connect()
     mycursor = mydb.cursor()
 
@@ -45,11 +40,3 @@ def addNew(id, content):
     mydb.commit()
 
     print(mycursor.rowcount,"record inserted")
-<<<<<<< HEAD
-
-print('this works')
-addNew(1, 'content')
-display()
-checkID(1)
-=======
->>>>>>> bcf29695352585925fe13bb2ba8f4f55b26d1289

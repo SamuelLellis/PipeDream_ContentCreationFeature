@@ -1,4 +1,5 @@
 import mysql.connector
+import json
 from getter import *
 from connect import connect
 
@@ -9,18 +10,18 @@ everyone = ['reader', 'contributor']
 desk = ['desk editor','desk head']
 copy = ['copy editor','assistant copy chief','copy chief','editor in chief']
 
-def editCheck(id,role,user,section):
+def editCheck(id,user):
     if(role in everyone):
         if(getStage(id) == desk or getStage(id) == copy):
-            return false
+            return 'Cannot edit'
         elif(getAuthor(id) != user):
-            return fasle
+            return 'Cannot edit'
         else:
-            return true
+            return getContent(id)
     elif(role in desk):
         if(getStage(id) == copy):
-            return false
+            return 'Cannot edit'
         elif(getSection(id) != section):
-            return false
+            return 'Cannot edit'
     else:
-        return true
+        return getContent(id)
