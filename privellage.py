@@ -13,15 +13,15 @@ copy = ['copy editor','assistant copy chief','copy chief','editor in chief']
 def editCheck(id,user):
     if(role in everyone):
         if(getStage(id) == desk or getStage(id) == copy):
-            return 'Cannot edit'
+            return false
         elif(getAuthor(id) != user):
-            return 'Cannot edit'
+            return false
         else:
             return getContent(id)
     elif(role in desk):
         if(getStage(id) == copy):
-            return 'Cannot edit'
+            return false
         elif(getSection(id) != section):
-            return 'Cannot edit'
+            return false
     else:
-        return getContent(id)
+        return true
